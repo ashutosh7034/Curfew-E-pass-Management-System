@@ -10,7 +10,7 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curfew e-Pass Management System - Modern UI</title>
+  <title>Curfew e-Pass Management System - Professional UI</title>
 
   <!-- Google Fonts for Modern Typography -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
       transition: color 0.3s ease;
     }
 
-    .navbar-nav .nav-link:hover {
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
       color: #ffdd57;
     }
 
@@ -65,7 +65,7 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
 
     /* Hero Section Styling */
     .hero-section {
-      background-color: #282c34;
+      background-image: linear-gradient(to right bottom, #007bff, #00aaff);
       color: #ffffff;
       height: 100vh;
       display: flex;
@@ -77,15 +77,39 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
     }
 
     .hero-section h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 700;
       margin-bottom: 1rem;
+      animation: fadeInDown 1s ease;
     }
 
     .hero-section p {
       font-size: 1.25rem;
       font-weight: 400;
       margin-bottom: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Search Section Styling */
@@ -159,6 +183,128 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
       background-color: #f9f9f9;
     }
 
+    /* About Section */
+    .about-section {
+  background-image: linear-gradient(to right bottom, #f0f8ff, #e6f7ff);
+  padding: 80px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700; /* Increased font weight for emphasis */
+  margin-bottom: 1rem;
+  color: #007bff;
+  text-transform: uppercase; /* Added uppercase for a stronger impact */
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.8; /* Increased line height for better readability */
+}
+
+.about-section .icon {
+  font-size: 4rem; /* Increased icon size */
+  color: #007bff;
+  margin-bottom: 1rem;
+  animation: bounce 1s infinite alternate; /* Added bounce animation */
+}
+
+.about-section .about-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box shadow transition */
+}
+
+.about-section .about-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Bounce animation for the icon */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+
+    /* Contact Section */
+    .contact-section {
+  background-image: linear-gradient(to right bottom, #007bff, #00aaff);
+  padding: 80px 20px;
+  border-radius: 15px;
+  max-width: 1000px;
+  margin: 60px auto;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700; /* Increased font weight for emphasis */
+  margin-bottom: 1rem;
+  text-transform: uppercase; /* Added uppercase for a stronger look */
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.contact-section .form-control {
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ffffff; /* Added border for better visibility */
+  margin-bottom: 15px;
+  transition: border 0.3s ease; /* Added transition effect */
+}
+
+.contact-section .form-control:focus {
+  border-color: #00aaff; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 170, 255, 0.5); /* Added focus shadow */
+}
+
+.contact-section .btn-primary {
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #007bff;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+}
+
+.contact-section .btn-primary:hover {
+  background-color: #f0f8ff;
+  transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+/* Additional styles for smaller screens */
+@media (max-width: 576px) {
+  .contact-section {
+    padding: 60px 15px; /* Reduced padding for small screens */
+  }
+
+  .contact-section h2 {
+    font-size: 2rem; /* Smaller heading on small screens */
+  }
+
+  .contact-section p {
+    font-size: 1rem; /* Smaller text on small screens */
+  }
+}
+
     /* Footer Styling */
     .footer {
       background-color: #333;
@@ -205,13 +351,13 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link active" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
             <a class="btn btn-outline-light" href="admin/">Admin Login</a>
@@ -223,21 +369,22 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
   <!-- Header End -->
 
   <!-- Hero Section Start -->
-  <div class="hero-section">
-    <div>
-      <h1 class="fade-in">Welcome to Curfew e-Pass System</h1>
-      <p class="fade-in">Search, manage, and review your curfew e-pass efficiently.</p>
+  <section class="hero-section" id="home">
+    <div class="container">
+      <h1>Welcome to the Curfew e-Pass Management System</h1>
+      <p>Efficiently manage and track your curfew e-pass applications and status.</p>
+      <a href="#about" class="btn btn-light btn-lg">Learn More</a>
     </div>
-  </div>
+  </section>
   <!-- Hero Section End -->
 
   <!-- Search Section Start -->
-  <section class="search-section">
-    <h3>Find Your Pass</h3>
+  <section class="search-section mt-5">
+    <h3 class="text-center">Search Your Curfew e-Pass Status</h3>
     <form method="post">
-      <div class="input-group">
-        <input type="text" name="searchdata" id="searchdata" class="form-control" placeholder="Enter Your Pass ID" required>
-        <button type="submit" name="search" class="btn btn-primary mt-3">Search Pass</button>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter Your Pass ID" name="searchdata" required>
+        <button class="btn btn-primary" type="submit" name="search">Search</button>
       </div>
     </form>
 
@@ -304,17 +451,61 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
   </section>
   <!-- Search Section End -->
 
+  <!-- About Section Start -->
+  <section class="about-section" id="about">
+  <div class="container">
+    <div class="about-box fade-in">
+      <i class="fa fa-info-circle icon"></i>
+      <h2>About Us</h2>
+      <p>The Curfew e-Pass Management System is a comprehensive solution designed to streamline the process of issuing and managing curfew passes during restrictions. Our goal is to provide an easy-to-use platform for citizens to apply for and track their passes, ensuring a smooth and efficient process for both applicants and authorities.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- About Section End -->
+
+  <!-- Contact Section Start -->
+  <!-- Contact Section Start -->
+<!-- Contact Section Start -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <p class="text-center mb-5">Have questions or need support? We're here to assist you with any issues related to the curfew pass application or status tracking. Feel free to reach out!</p>
+    
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+      <form action="includes/save_contact.php" method="POST">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6">
+              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact Section End -->
+
   <!-- Footer Start -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2024 Curfew e-Pass Management System Created by 
       <strong>Vanshika Kandalgaonkar</strong></p>
-      
       <div class="social-media">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.in"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
   </footer>
@@ -322,5 +513,20 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Smooth Scroll for Anchor Links -->
+  <script>
+    document.querySelectorAll('a.nav-link').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 50, // Adjust to account for fixed navbar height
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
