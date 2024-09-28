@@ -246,33 +246,37 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
   margin: 60px auto;
   color: #ffffff;
   text-align: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-section h2 {
   font-size: 2.5rem;
-  font-weight: 700; /* Increased font weight for emphasis */
+  font-weight: 600;
   margin-bottom: 1rem;
-  text-transform: uppercase; /* Added uppercase for a stronger look */
+  animation: fadeInDown 0.5s ease forwards;
 }
 
 .contact-section p {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  animation: fadeInUp 0.5s ease forwards;
 }
 
 .contact-section .form-control {
   padding: 15px;
   border-radius: 8px;
-  border: 1px solid #ffffff; /* Added border for better visibility */
+  border: none;
   margin-bottom: 15px;
-  transition: border 0.3s ease; /* Added transition effect */
+  transition: border-color 0.3s ease;
+  animation: fadeInUp 0.7s ease forwards;
 }
 
 .contact-section .form-control:focus {
-  border-color: #00aaff; /* Change border color on focus */
-  box-shadow: 0 0 5px rgba(0, 170, 255, 0.5); /* Added focus shadow */
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .contact-section .btn-primary {
@@ -282,28 +286,50 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
   background-color: #ffffff;
   color: #007bff;
   border: none;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-section .btn-primary:hover {
   background-color: #f0f8ff;
-  transform: translateY(-3px); /* Subtle lift on hover */
+  transform: translateY(-2px);
 }
 
-/* Additional styles for smaller screens */
-@media (max-width: 576px) {
-  .contact-section {
-    padding: 60px 15px; /* Reduced padding for small screens */
-  }
+#promptMessage {
+  animation: fadeIn 0.5s ease forwards;
+}
 
-  .contact-section h2 {
-    font-size: 2rem; /* Smaller heading on small screens */
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  .contact-section p {
-    font-size: 1rem; /* Smaller text on small screens */
+  to {
+    opacity: 1;
   }
 }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
     /* Footer Styling */
     .footer {
@@ -464,8 +490,6 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
 
   <!-- About Section End -->
 
-  <!-- Contact Section Start -->
-  <!-- Contact Section Start -->
 <!-- Contact Section Start -->
 <section class="contact-section" id="contact">
   <div class="container">
@@ -474,7 +498,7 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
     
     <div class="row justify-content-center">
       <div class="col-md-8">
-      <form action="includes/save_contact.php" method="POST">
+        <form action="includes/save_contact.php" method="POST" id="contactForm">
           <div class="row mb-3">
             <div class="col-md-6">
               <input type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -488,10 +512,14 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
           </div>
           <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
         </form>
+
+        <!-- Prompt Container -->
+        <div id="promptMessage" class="alert alert-success mt-3" style="display: none;"></div>
       </div>
     </div>
   </div>
 </section>
+
 
 
   <!-- Contact Section End -->
