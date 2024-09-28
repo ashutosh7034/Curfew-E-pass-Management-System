@@ -329,7 +329,7 @@ $isAdminLoggedIn = isset($_SESSION['cpmsaid']) && strlen($_SESSION['cpmsaid']) >
     transform: translateY(0);
   }
 }
-
+ 
 
     /* Footer Styling */
     .footer {
